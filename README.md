@@ -32,7 +32,7 @@
 | --- | --- | --- | --- |
 | mvp-lam | — | [mvp-lam](https://huggingface.co/JM-Lee/mvp-lam) | Multi-viewpoint LAM trained on OXE + EgoExo4D. |
 | mvp-lam-7b | [prism-dinosiglip-224px+7b](https://huggingface.co/TRI-ML/prismatic-vlms/tree/main/prism-dinosiglip-224px%2B7b) | [mvp-lam-7b-bridge-pt](https://huggingface.co/JM-Lee/mvp-lam-7b-bridge-pt) | VLA pretrained on Bridge V2 with MVP-LAM latent actions. |
-| mvp-lam-libero | [mvp-lam-7b](https://huggingface.co/JM-Lee/mvp-lam-7b-bridge-pt) | [mvp-lam-7b-224-libero](https://huggingface.co/JM-Lee/mvp-lam-7b-224-libero) | Finetuned on the LIBERO-Long. |
+| mvp-lam-libero | [mvp-lam-7b](https://huggingface.co/JM-Lee/mvp-lam-7b-bridge-pt) | [mvp-lam-7b-224-libero](https://huggingface.co/JM-Lee/mvp-lam-7b-224-libero) | Finetuned on the LIBERO-Long and LIBERO-Goal. |
 | mvp-lam-simpler | [mvp-lam-7b](https://huggingface.co/JM-Lee/mvp-lam-7b-bridge-pt) | [mvp-lam-7b-224-simpler](https://huggingface.co/JM-Lee/mvp-lam-7b-224-simpler) | Finetuned on small SIMPLER demos for SimplerEnv. |
 
 
@@ -236,7 +236,7 @@ python real2sim_eval_maniskill3.py \
 
 ### SIMPLER Benchmark
 
-| Task | MVP-LAM | UniVLA | LAPA | OpenVLA | Octo-Small | Octo-Base | π₀ |
+| Task | MVP-LAM | UniVLA | LAPA | OpenVLA | Octo-Small | Octo-Base | $\pi_0$ |
 | :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
 | StackG2Y | 33.3 | 16.7 | **54.2** | 41.6 | 8.3 | 0.0 | <u>37.5</u> |
 | Carrot2Plate | **66.7** | 20.8 | <u>45.8</u> | 50.0 | 33.3 | 37.5 | 33.3 |
@@ -244,12 +244,12 @@ python real2sim_eval_maniskill3.py \
 | Eggplant2Bask | **75.0** | <u>66.7</u> | 58.3 | 16.7 | 12.5 | 20.8 | 45.8 |
 | **AVG** | **60.4** | 39.6 | <u>57.3</u> | 36.4 | 19.8 | 17.7 | 36.5 |
 
-### LIBERO-Long
+### LIBERO
 
-| MVP-LAM | UniVLA (Bridge) | OpenVLA | π₀ | UniVLA (OXE) |
-| :---: | :---: | :---: | :---: | :---: |
-| **90.8** | 79.4 | 53.7 | 85.2 | 92.0 |
-
+|Suite| MVP-LAM | UniVLA (Bridge) | OpenVLA | $\pi_0$ | UniVLA (OXE) |
+|:---:| :---: | :---: | :---: | :---: | :---: |
+|Long| **90.8** | 79.4 | 53.7 | 85.2 | 92.0 |
+|Goal| **94.8** | 91.9 | 58.8 | 95.8 | 96.8 |
 ---
 
 ## 📝 Citation
