@@ -26,8 +26,8 @@
   - [🎮 Getting Started](#-getting-started)
   - [🔥 Training Recipe](#-training-recipe)
     - [0️⃣ Data Preparation](#0️⃣-data-preparation)
-      - [Open X-Embodiments](#open-x-embodiments)
-      - [Ego-Exo4D](#ego-exo4d)
+      - [1. Open X-Embodiments](#1-open-x-embodiments)
+      - [2. Ego-Exo4D](#2-ego-exo4d)
     - [1️⃣ Latent Action Model Training](#1️⃣-latent-action-model-training)
     - [2️⃣ VLA Pretraining](#2️⃣-vla-pretraining)
     - [3️⃣ Post-training \& Evaluation](#3️⃣-post-training--evaluation)
@@ -75,11 +75,13 @@ pip install "flash-attn==2.5.5" --no-build-isolation
 
 ### 0️⃣ Data Preparation
 
-#### Open X-Embodiments
+#### 1. Open X-Embodiments
 
 Please refer to [this script](https://github.com/moojink/rlds_dataset_mod/blob/ad83e6c0efad5823540c0f6d3a05529596ead0b5/prepare_open_x.sh) for an example of how to download datasets from OXE.
 
-#### Ego-Exo4D
+Note that we filter out trajectories in Bridge V2 that contain only single-view images (approximately 50% of trajectories)
+
+#### 2. Ego-Exo4D
 
 ```bash
 conda env create -f vla-scripts/extern/egoexo4d_build/environment_ubuntu.yml
