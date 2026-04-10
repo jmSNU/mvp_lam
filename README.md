@@ -4,9 +4,9 @@
 [![Project Page](https://img.shields.io/badge/Project-Page-blue.svg)](https://jmsnu.github.io/)
 [![License](https://img.shields.io/badge/License-Apache_2.0-green.svg)](LICENSE)
 
-**Jung Min Lee**&sup1;, **Dohyeok Lee**&sup1;, **Seokhun Ju**&sup1;, **Taehyun Cho**&sup1;, **Jin Woo Koo**&sup1;, **Li Zhao**&sup2;, **Sangwoo Hong**&sup3;, **Jungwoo Lee**&sup1;&sup4;
+**Jung Min Lee**<sup>1</sup>, **Dohyeok Lee**<sup>1</sup>, **Seokhun Ju**<sup>1</sup>, **Taehyun Cho**<sup>1</sup>, **Jin Woo Koo**<sup>1</sup>, **Li Zhao**<sup>2</sup>, **Sangwoo Hong**<sup>3</sup>, **Jungwoo Lee**<sup>1,4</sup>
 
-&sup1;Seoul National University &sup2;Microsoft Research Asia &sup3;Konkuk University &sup4;HodooAI Labs
+<sup>1</sup>Seoul National University  <sup>2</sup>Microsoft Research Asia  <sup>3</sup>Konkuk University  <sup>4</sup>HodooAI Labs
 
 ![Concept figure](assets/concept2.png)
 
