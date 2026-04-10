@@ -23,7 +23,7 @@
     - [🔥 Highlights](#-highlights)
   - [Table of Contents](#table-of-contents)
   - [📢 News](#-news)
-  - [Models](#models)
+  - [🤗 Models](#-models)
   - [🎮 Getting Started](#-getting-started)
   - [🔥 Training Recipe](#-training-recipe)
     - [0️⃣ Data Preparation](#0️⃣-data-preparation)
@@ -44,7 +44,7 @@
 
 - **[2026/06]** Code release of MVP-LAM. Please check it out!
 
-## Models
+## 🤗 Models
 
 | Model Name | Backbone | HF Path | Note |
 | --- | --- | --- | --- |
