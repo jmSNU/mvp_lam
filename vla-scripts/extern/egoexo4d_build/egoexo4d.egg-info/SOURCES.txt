@@ -1,0 +1,7 @@
+setup.py
+egoexo4d/__init__.py
+egoexo4d/egoexo4d_dataset_builder.py
+egoexo4d.egg-info/PKG-INFO
+egoexo4d.egg-info/SOURCES.txt
+egoexo4d.egg-info/dependency_links.txt
+egoexo4d.egg-info/top_level.txt

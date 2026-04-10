@@ -26,6 +26,8 @@
   - [🎮 Getting Started](#-getting-started)
   - [🔥 Training Recipe](#-training-recipe)
     - [0️⃣ Data Preparation](#0️⃣-data-preparation)
+      - [Open X-Embodiments](#open-x-embodiments)
+      - [Ego-Exo4D](#ego-exo4d)
     - [1️⃣ Latent Action Model Training](#1️⃣-latent-action-model-training)
     - [2️⃣ VLA Pretraining](#2️⃣-vla-pretraining)
     - [3️⃣ Post-training \& Evaluation](#3️⃣-post-training--evaluation)
@@ -73,9 +75,54 @@ pip install "flash-attn==2.5.5" --no-build-isolation
 
 ### 0️⃣ Data Preparation
 
-We train MVP-LAM on time-synchronized multi-view videos from Bridge V2.
+#### Open X-Embodiments
 
 Please refer to [this script](https://github.com/moojink/rlds_dataset_mod/blob/ad83e6c0efad5823540c0f6d3a05529596ead0b5/prepare_open_x.sh) for an example of how to download datasets from OXE.
+
+#### Ego-Exo4D
+
+```bash
+conda env create -f vla-scripts/extern/egoexo4d_build/environment_ubuntu.yml
+conda activate rlds_env
+```
+
+```bash
+pip install awscli ego4d
+aws configure
+egoexo -o /path/to/egoexo4d/ --parts annotations metadata downscaled_takes/448
+```
+
+```bash
+cd val-scripts/extern/egoexo4d_build
+```
+
+Preparing `info_clips.json`:
+
+```bash
+python prepare_dataset.py --root /path/to/egoexo4d
+```
+
+Converting to `.npy`:
+
+```bash
+python preprocess_egoexo4d.py \
+    --denseclips_dir /path/to/egoexo4d/clips_jpgs/processed \
+    --info_clips_json /path/to/egoexo4d/clips_jpgs/processed/info_clips.json \
+    --source_videos_dir /path/to/egoexo4d/takes \
+    --processes 32
+```
+
+```bash
+python create_episode_egoexo4d.py \
+    --source_dir /path/to/egoexo4d/clips_jpgs/processed \
+    --target_dir /path/to/egoexo4d/data/train \
+    --annotation_file /path/to/egoexo4d/clips_jpgs/processed/annotations.json \
+    --verify --processes 8
+```
+
+```bash
+bash tfds_build.sh
+```
 
 ### 1️⃣ Latent Action Model Training
 
