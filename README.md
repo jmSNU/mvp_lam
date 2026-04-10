@@ -1,57 +1,40 @@
 # 🎯 MVP-LAM: Learning Action-Centric Latent Action via Cross-Viewpoint Reconstruction
 
-<div align="center">
+[![arXiv](https://img.shields.io/badge/arXiv-2602.03668-b31b1b.svg)](https://arxiv.org/abs/2602.03668)
+[![Project Page](https://img.shields.io/badge/Project-Page-blue.svg)](https://jmsnu.github.io/)
+[![License](https://img.shields.io/badge/License-Apache_2.0-green.svg)](LICENSE)
+
+**Jung Min Lee**&sup1;, **Dohyeok Lee**&sup1;, **Seokhun Ju**&sup1;, **Taehyun Cho**&sup1;, **Jin Woo Koo**&sup1;, **Li Zhao**&sup2;, **Sangwoo Hong**&sup3;, **Jungwoo Lee**&sup1;&sup4;
+
+&sup1;Seoul National University &sup2;Microsoft Research Asia &sup3;Konkuk University &sup4;HodooAI Labs
 
 ![Concept figure](assets/concept2.png)
 
-> #### 📄 [Paper](https://arxiv.org/abs/2602.03668) | 🌐 [Project Page](https://jmsnu.github.io/)
->
-> ✒️ Jung Min Lee, Dohyeok Lee, Seokhun Ju, Taehyun Cho, Jin Woo Koo, Li Zhao, Sangwoo Hong, Jungwoo Lee   
-> Seoul National University, Microsoft Research Asia, Konkuk University, HodooAI Labs
+<!-- **Cross-viewpoint reconstruction trains a latent action inferred from one view to explain the future in another view.** -->
 
 </div>
 
+
 ### 🔥 Highlights
 
-- **Cross-viewpoint reconstruction** trains a latent action inferred from one view to explain the future in another view, reducing reliance on viewpoint-specific cues.
-- **Action-centric latent actions** achieve higher mutual information with ground-truth actions and improved action prediction, including under out-of-distribution evaluation.
-- **Improved VLA pretraining**: pretraining VLAs with MVP-LAM latent actions improves downstream manipulation performance on the SIMPLER and LIBERO-Long benchmarks.
+- **Cross-viewpoint reconstruction** — a latent action inferred from one view must explain the future in another view, reducing reliance on viewpoint-specific cues.
+- **Action-centric latent actions** — higher mutual information with ground-truth actions and improved action prediction, including under out-of-distribution evaluation.
+- **Improved VLA pretraining** — pretraining VLAs with MVP-LAM latent actions improves downstream manipulation on the SIMPLER and LIBERO-Long benchmarks.
 
-## Table of Contents
-
-- [🎯 MVP-LAM: Learning Action-Centric Latent Action via Cross-Viewpoint Reconstruction](#-mvp-lam-learning-action-centric-latent-action-via-cross-viewpoint-reconstruction)
-    - [🔥 Highlights](#-highlights)
-  - [Table of Contents](#table-of-contents)
-  - [📢 News](#-news)
-  - [🤗 Models](#-models)
-  - [🎮 Getting Started](#-getting-started)
-  - [🔥 Training Recipe](#-training-recipe)
-    - [0️⃣ Data Preparation](#0️⃣-data-preparation)
-      - [1. Open X-Embodiments](#1-open-x-embodiments)
-      - [2. Ego-Exo4D](#2-ego-exo4d)
-    - [1️⃣ Latent Action Model Training](#1️⃣-latent-action-model-training)
-    - [2️⃣ VLA Pretraining](#2️⃣-vla-pretraining)
-    - [3️⃣ Post-training \& Evaluation](#3️⃣-post-training--evaluation)
-      - [LIBERO](#libero)
-      - [SimplerEnv](#simplerenv)
-  - [🚀 Performance](#-performance)
-    - [SIMPLER Benchmark](#simpler-benchmark)
-    - [LIBERO-Long](#libero-long)
-  - [📝 Citation](#-citation)
-  - [Acknowledgements](#acknowledgements)
 
 ## 📢 News
 
 - **[2026/06]** Code release of MVP-LAM. Please check it out!
 
-## 🤗 Models
+## 🤗 Model Zoo
 
-| Model Name | Backbone | HF Path | Note |
+| Model | Backbone | HF Path | Note |
 | --- | --- | --- | --- |
-| mvp-lam | - | [mvp-lam](https://huggingface.co/JM-Lee/mvp-lam) | Multi-viewpoint latent action model trained on Bridge V2 multi-view. |
-| mvp-lam-7b | [TRI-ML/prismatic-vlms/prism-dinosiglip-224px+7b](https://huggingface.co/TRI-ML/prismatic-vlms/tree/main/prism-dinosiglip-224px%2B7b) | [mvp-lam-7b](https://huggingface.co/JM-Lee/mvp-lam-7b-bridge-pt) | VLA pretrained on Bridge V2 with MVP-LAM latent actions. |
-| mvp-lam-libero | [mvp-lam-7b-224-libero](https://huggingface.co/JM-Lee/mvp-lam-7b-224-libero) | [your-hf-id/mvp-lam-7b-sft-libero](https://huggingface.co/your-hf-id/mvp-lam-7b-sft-libero) | Finetuned on the LIBERO dataset. |
-| mvp-lam-simpler | [mvp-lam-7b-224-simpler](https://huggingface.co/your-hf-id/mvp-lam-7b) | [your-hf-id/mvp-lam-7b-sft-simpler](https://huggingface.co/your-hf-id/mvp-lam-7b-sft-simpler) | Finetuned on BridgeV2 (OXE ver.) for SimplerEnv. |
+| mvp-lam | — | [mvp-lam](https://huggingface.co/JM-Lee/mvp-lam) | Multi-viewpoint LAM trained on OXE + EgoExo4D. |
+| mvp-lam-7b | [prism-dinosiglip-224px+7b](https://huggingface.co/TRI-ML/prismatic-vlms/tree/main/prism-dinosiglip-224px%2B7b) | [mvp-lam-7b-bridge-pt](https://huggingface.co/JM-Lee/mvp-lam-7b-bridge-pt) | VLA pretrained on Bridge V2 with MVP-LAM latent actions. |
+| mvp-lam-libero | [mvp-lam-7b](https://huggingface.co/JM-Lee/mvp-lam-7b-bridge-pt) | [mvp-lam-7b-224-libero](https://huggingface.co/JM-Lee/mvp-lam-7b-224-libero) | Finetuned on the LIBERO-Long. |
+| mvp-lam-simpler | [mvp-lam-7b](https://huggingface.co/JM-Lee/mvp-lam-7b-bridge-pt) | [mvp-lam-7b-224-simpler](https://huggingface.co/JM-Lee/mvp-lam-7b-224-simpler) | Finetuned on small SIMPLER demos for SimplerEnv. |
+
 
 ## 🎮 Getting Started
 
@@ -65,9 +48,8 @@ conda activate mvplam
 2. Install dependencies.
 
 ```bash
-# Install pytorch
-# Look up https://pytorch.org/get-started/previous-versions/ with your cuda version
-# Our experiments are conducted with 'torch 2.2.0 + cuda 12.1'
+# Install PyTorch (our experiments use torch 2.2.0 + CUDA 12.1)
+# See https://pytorch.org/get-started/previous-versions/ for other versions
 pip install torch torchvision
 
 # Clone and install
@@ -75,23 +57,29 @@ git clone https://github.com/jmsnu/mvp_lam.git
 cd mvp_lam
 pip install -e .
 
-# Install Flash Attention 2 for training (https://github.com/Dao-AILab/flash-attention)
+# Flash Attention 2 (required for training)
 pip install packaging ninja
-ninja --version; echo $?  # Verify Ninja --> should return exit code "0"
+ninja --version; echo $?  # should return exit code "0"
 pip install "flash-attn==2.5.5" --no-build-isolation
 ```
+
+---
 
 ## 🔥 Training Recipe
 
 ### 0️⃣ Data Preparation
 
-#### 1. Open X-Embodiments
+<details>
+<summary><b>Open X-Embodiments</b></summary>
 
 Please refer to [this script](https://github.com/moojink/rlds_dataset_mod/blob/ad83e6c0efad5823540c0f6d3a05529596ead0b5/prepare_open_x.sh) for an example of how to download datasets from OXE.
 
-Note that we filter out trajectories in Bridge V2 that contain only single-view images (approximately 50% of trajectories)
+> **Note:** We filter out trajectories in Bridge V2 that contain only single-view images (approximately 50% of trajectories).
 
-#### 2. Ego-Exo4D
+</details>
+
+<details>
+<summary><b>Ego-Exo4D</b></summary>
 
 ```bash
 conda env create -f vla-scripts/extern/egoexo4d_build/environment_ubuntu.yml
@@ -105,7 +93,7 @@ egoexo -o /path/to/egoexo4d/ --parts annotations metadata downscaled_takes/448
 ```
 
 ```bash
-cd val-scripts/extern/egoexo4d_build
+cd vla-scripts/extern/egoexo4d_build
 ```
 
 Preparing `info_clips.json`:
@@ -136,18 +124,22 @@ python create_episode_egoexo4d.py \
 bash tfds_build.sh
 ```
 
+</details>
+
 ### 1️⃣ Latent Action Model Training
 
+> We highly recommend directly using our [pre-trained checkpoints](https://huggingface.co/JM-Lee/mvp-lam) to save time and compute.
 
 MVP-LAM learns discrete latent actions with a cross-viewpoint reconstruction objective. Self-viewpoint reconstruction predicts $o_{t+1}^{v}$ from $(o_t^{v}, z_t^{v})$, while cross-viewpoint reconstruction swaps latent actions across synchronized views and predicts $o_{t+1}^{v}$ from $(o_t^{v}, z_t^{\tilde v})$ for $v \neq \tilde v$.
 
+<div align="center">
+
 ![Architecture figure](assets/arch.png)
 
-To train the latent action model:
+</div>
 
 ```bash
 cd latent_action_model
-
 torchrun --standalone --nnodes 1 --nproc-per-node 4 main.py fit \
     --config config/lam.yaml \
     2>&1 | tee lam.log
@@ -157,9 +149,9 @@ torchrun --standalone --nnodes 1 --nproc-per-node 4 main.py fit \
 
 The trained latent action model generates pseudo-labels for VLA pretraining via a next-token prediction objective. Latent action indices in the VQ-VAE codebook are mapped to dedicated tokens in the LLaMA tokenizer.
 
-To initiate pre-training, please refer to the following script or simply run `bash ./vla-scripts/train.sh`:
-
 ```bash
+cd vla-scripts
+
 GPUS_PER_NODE=4
 NNODES=1
 MASTER_PORT=${MASTER_PORT:-28596}
@@ -172,17 +164,20 @@ torchrun --nproc_per_node ${GPUS_PER_NODE} --nnodes ${NNODES} --node_rank ${RANK
     --run_root_dir "vla_log"
 ```
 
+Or simply run `bash ./vla-scripts/train.sh`.
+
 ### 3️⃣ Post-training & Evaluation
 
-With the pretrained generalist policy trained to plan over an embodiment-agnostic action space, we add embodiment-specific action decoder heads for downstream deployment.
+With the pretrained generalist policy, we add embodiment-specific action decoder heads for downstream deployment.
 
-#### LIBERO
+<details>
+<summary><b>LIBERO</b></summary>
 
-> Please first download the [LIBERO datasets](https://huggingface.co/datasets/openvla/modified_libero_rlds/tree/main)
+> Please first download the [LIBERO datasets](https://huggingface.co/datasets/openvla/modified_libero_rlds/tree/main).
 
 **Training:**
 
-1. Set the pretrained VLA and latent action model path in `vla_path` and `lam_path` of the [training config](vla-scripts/finetune_libero.py).
+1. Set `vla_path` and `lam_path` in [training config](vla-scripts/finetune_libero.py).
 2. Set your local LIBERO dataset path in `data_root_dir`.
 3. Start training:
 
@@ -205,11 +200,14 @@ python experiments/robot/libero/run_libero_eval.py \
     --seed 7
 ```
 
-#### SimplerEnv
+</details>
 
-> Our SimplerEnv evaluation is based on the [official repo (maniskill3 branch)](https://github.com/simpler-env/SimplerEnv/tree/maniskill3).
+<details>
+<summary><b>SimplerEnv</b></summary>
 
-1. Clone and install SimplerEnv:
+> Based on the [official SimplerEnv repo (maniskill3 branch)](https://github.com/simpler-env/SimplerEnv/tree/maniskill3).
+
+1. Clone and install:
 
 ```bash
 git clone -b maniskill3 https://github.com/simpler-env/SimplerEnv.git
@@ -232,14 +230,16 @@ python real2sim_eval_maniskill3.py \
     --ckpt_path /path/to/your/finetuned_model
 ```
 
+</details>
+
+---
+
 ## 🚀 Performance
 
 ### SIMPLER Benchmark
 
-Success rate (%). Best is **bolded** and second best is <u>underlined</u>.
-
 | Task | MVP-LAM | UniVLA | LAPA | OpenVLA | Octo-Small | Octo-Base | π₀ |
-| --- | --- | --- | --- | --- | --- | --- | --- |
+| :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
 | StackG2Y | 33.3 | 16.7 | **54.2** | 41.6 | 8.3 | 0.0 | <u>37.5</u> |
 | Carrot2Plate | **66.7** | 20.8 | <u>45.8</u> | 50.0 | 33.3 | 37.5 | 33.3 |
 | Spoon2Towel | <u>66.7</u> | 54.2 | **70.8** | 37.5 | 25.0 | 12.5 | 29.2 |
@@ -249,15 +249,17 @@ Success rate (%). Best is **bolded** and second best is <u>underlined</u>.
 ### LIBERO-Long
 
 | MVP-LAM | UniVLA (Bridge) | OpenVLA | π₀ | UniVLA (OXE) |
-| --- | --- | --- | --- | --- |
+| :---: | :---: | :---: | :---: | :---: |
 | **90.8** | 79.4 | 53.7 | 85.2 | 92.0 |
+
+---
 
 ## 📝 Citation
 
 If you find our code or models useful in your work, please cite our paper:
 
 ```bibtex
-@misc{lee2026mvplamlearningactioncentriclatent,
+@misc{lee2026mvplam,
   title     = {MVP-LAM: Learning Action-Centric Latent Action via Cross-Viewpoint Reconstruction},
   author    = {Jung Min Lee and Dohyeok Lee and Seokhun Ju and Taehyun Cho and Jin Woo Koo and Li Zhao and Sangwoo Hong and Jungwoo Lee},
   year      = {2026},
