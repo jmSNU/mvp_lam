@@ -1,4 +1,4 @@
-# 🎯 MVP-LAM: Learning Action-Centric Latent Action via Cross-Viewpoint Reconstruction
+# MVP-LAM: Learning Action-Centric Latent Action via Cross-Viewpoint Reconstruction
 
 [![arXiv](https://img.shields.io/badge/arXiv-2602.03668-b31b1b.svg)](https://arxiv.org/abs/2602.03668)
 [![Project Page](https://img.shields.io/badge/Project-Page-blue.svg)](https://jmsnu.github.io/)
@@ -15,7 +15,7 @@
 </div>
 
 
-### 🔥 Highlights
+### 💡 Highlights
 
 - **Cross-viewpoint reconstruction** — a latent action inferred from one view must explain the future in another view, reducing reliance on viewpoint-specific cues.
 - **Action-centric latent actions** — higher mutual information with ground-truth actions and improved action prediction, including under out-of-distribution evaluation.
@@ -164,7 +164,7 @@ torchrun --nproc_per_node ${GPUS_PER_NODE} --nnodes ${NNODES} --node_rank ${RANK
 
 Or simply run `bash ./vla-scripts/train.sh`.
 
-### 3️⃣ Post-training & Evaluation
+### 3️⃣ Finetuning & Evaluation
 
 With the pretrained generalist policy, we add embodiment-specific action decoder heads for downstream deployment.
 
