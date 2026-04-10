@@ -1,0 +1,2 @@
+from latent_action_model.genie.modules.lam import DINOLatentActionModel
+from latent_action_model.genie.modules.univla_lam import ControllableDINOLatentActionModel, UncontrolledDINOLatentActionModel

@@ -1,0 +1,1 @@
+torchrun --standalone --nnodes 1 --nproc-per-node 2 finetune_simpler.py --run_root_dir "/path/to/run_dir"

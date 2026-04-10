@@ -1,0 +1,1 @@
+CUDA_VISIBLE_DEVICES=2,3 torchrun --standalone --nnodes 1 --nproc-per-node 2 finetune_libero.py --dataset_name "libero_10_no_noops"  --run_root_dir "/path/to/run_dir"

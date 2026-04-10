@@ -1,0 +1,9 @@
+LICENSE
+setup.py
+ego4d/__init__.py
+ego4d/ego4d_dataset_builder.py
+ego4d/ego4d_dataset_builder_test.py
+ego4d.egg-info/PKG-INFO
+ego4d.egg-info/SOURCES.txt
+ego4d.egg-info/dependency_links.txt
+ego4d.egg-info/top_level.txt
