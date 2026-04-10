@@ -3,11 +3,11 @@ requires = ["setuptools"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "univla"
+name = "mvp-lam"
 authors = [
     {name = "Qingwen Bu", email="qwbu01@sjtu.edu.cn"},
 ]
-description = "UniVLA: Learning to Act Anywhere with Task-centric Latent Actions"
+description = "MVP-LAM: Learning Action-Centric Latent Action via Cross-Viewpoint Reconstruction"
 version = "1.0.0"
 readme = "README.md"
 requires-python = ">=3.8"
@@ -82,7 +82,7 @@ sagemaker = [
 ]
 
 [project.urls]
-homepage = "https://opendrivelab.com/UniVLA/"
+homepage = "https://jmsnu.github.io/"
 
 
 [tool.setuptools.packages.find]
