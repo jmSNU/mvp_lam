@@ -128,8 +128,6 @@ bash tfds_build.sh
 
 ### 1️⃣ Latent Action Model Training
 
-> We highly recommend directly using our [pre-trained checkpoints](https://huggingface.co/JM-Lee/mvp-lam) to save time and compute.
-
 MVP-LAM learns discrete latent actions with a cross-viewpoint reconstruction objective. Self-viewpoint reconstruction predicts $o_{t+1}^{v}$ from $(o_t^{v}, z_t^{v})$, while cross-viewpoint reconstruction swaps latent actions across synchronized views and predicts $o_{t+1}^{v}$ from $(o_t^{v}, z_t^{\tilde v})$ for $v \neq \tilde v$.
 
 <div align="center">
