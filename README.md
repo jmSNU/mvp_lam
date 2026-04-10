@@ -1,4 +1,4 @@
-# 🎯 MVP-LAM
+# 🎯 MVP-LAM: Learning Action-Centric Latent Action via Cross-Viewpoint Reconstruction
 
 <div align="center">
 
@@ -19,7 +19,7 @@
 
 ## Table of Contents
 
-- [🎯 MVP-LAM](#-mvp-lam)
+- [🎯 MVP-LAM: Learning Action-Centric Latent Action via Cross-Viewpoint Reconstruction](#-mvp-lam-learning-action-centric-latent-action-via-cross-viewpoint-reconstruction)
     - [🔥 Highlights](#-highlights)
   - [Table of Contents](#table-of-contents)
   - [📢 News](#-news)
