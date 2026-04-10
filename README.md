@@ -23,6 +23,7 @@
     - [🔥 Highlights](#-highlights)
   - [Table of Contents](#table-of-contents)
   - [📢 News](#-news)
+  - [Models](#models)
   - [🎮 Getting Started](#-getting-started)
   - [🔥 Training Recipe](#-training-recipe)
     - [0️⃣ Data Preparation](#0️⃣-data-preparation)
@@ -42,6 +43,15 @@
 ## 📢 News
 
 - **[2026/06]** Code release of MVP-LAM. Please check it out!
+
+## Models
+
+| Model Name | Backbone | HF Path | Note |
+| --- | --- | --- | --- |
+| mvp-lam | - | [mvp-lam](https://huggingface.co/JM-Lee/mvp-lam) | Multi-viewpoint latent action model trained on Bridge V2 multi-view. |
+| mvp-lam-7b | [TRI-ML/prismatic-vlms/prism-dinosiglip-224px+7b](https://huggingface.co/TRI-ML/prismatic-vlms/tree/main/prism-dinosiglip-224px%2B7b) | [mvp-lam-7b](https://huggingface.co/JM-Lee/mvp-lam-7b-bridge-pt) | VLA pretrained on Bridge V2 with MVP-LAM latent actions. |
+| mvp-lam-libero | [mvp-lam-7b-224-libero](https://huggingface.co/JM-Lee/mvp-lam-7b-224-libero) | [your-hf-id/mvp-lam-7b-sft-libero](https://huggingface.co/your-hf-id/mvp-lam-7b-sft-libero) | Finetuned on the LIBERO dataset. |
+| mvp-lam-simpler | [mvp-lam-7b-224-simpler](https://huggingface.co/your-hf-id/mvp-lam-7b) | [your-hf-id/mvp-lam-7b-sft-simpler](https://huggingface.co/your-hf-id/mvp-lam-7b-sft-simpler) | Finetuned on BridgeV2 (OXE ver.) for SimplerEnv. |
 
 ## 🎮 Getting Started
 
