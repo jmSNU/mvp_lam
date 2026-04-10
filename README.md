@@ -24,7 +24,7 @@
 
 ## 📢 News
 
-- **[2026/06]** Code release of MVP-LAM. Please check it out!
+- **[2026/04]** Code release of MVP-LAM. Please check it out!
 
 ## 🤗 Model Zoo
 
