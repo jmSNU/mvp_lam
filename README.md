@@ -24,6 +24,7 @@
 
 ## 📢 News
 
+- **[2026/04]** MVP-LAM is accepted to ICML 2026!
 - **[2026/04]** Code release of MVP-LAM. Please check it out!
 
 ## 🤗 Model Zoo
